@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.interff{
+    font-family: "Inter", sans-serif;
+}
+
+/* .btn-style-fill{
+ background: #FF3811;
+ color: white;
+ border: #FF3811;
+}
+.btn-style-fill:hover{
+    background: white;
+    color:#FF3811;
+    font-weight: bold;
+    border: #FF3811;
+} */
