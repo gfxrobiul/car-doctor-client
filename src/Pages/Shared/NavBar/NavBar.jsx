@@ -2,13 +2,25 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 
 const NavBar = () => {
-  const  navLinks = <>
-  <li><Link to="/">Home</Link></li>
-  <li><Link to="/about">About</Link></li>
-  <li><Link to="">Serives</Link></li>
-  <li><Link to="">Blog</Link></li>
-  <li><Link to="">Contact</Link></li>
-  </>
+  const navLinks = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="">Serives</Link>
+      </li>
+      <li>
+        <Link to="">Blog</Link>
+      </li>
+      <li>
+        <Link to="">Contact</Link>
+      </li>
+    </>
+  );
 
   return (
     <div className="navbar bg-base-100 h-28 mb-4">
@@ -34,7 +46,7 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-           {navLinks}
+            {navLinks}
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl">
@@ -42,12 +54,12 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {navLinks}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-      <button className="btn bg-transparent text-[#FF3811] border-[#FF3811] hover:bg-[#FF3811] hover:text-white hover:border-[#FF3811]  ">Appointment</button>
+        <button className="btn bg-transparent text-[#FF3811] border-[#FF3811] hover:bg-[#FF3811] hover:text-white hover:border-[#FF3811]  ">
+          Appointment
+        </button>
       </div>
     </div>
   );
