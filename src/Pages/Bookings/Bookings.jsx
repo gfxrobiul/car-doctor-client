@@ -37,11 +37,12 @@ const Bookings = () => {
       <h2 className="text-5xl">Your Bookings: {bookings.length}</h2>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
+          {/*HEAD */}
           <thead>
             <tr className="bg-[#FF3811] text-white font-bold text-xl">
               <th>
-            
+
+
               </th>
               <th>Service Picture</th>
               <th>Service Name</th>
