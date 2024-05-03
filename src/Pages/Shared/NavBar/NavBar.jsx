@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { IoMdLogOut } from "react-icons/io";
+import { FaUser } from "react-icons/fa";
 
 const NavBar = () => {
+  const { logOut, user } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => { })
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
   const navLinks = (
     <>
       <li>
@@ -9,15 +23,6 @@ const NavBar = () => {
       </li>
       <li>
         <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="">Serives</Link>
-      </li>
-      <li>
-        <Link to="">Blog</Link>
-      </li>
-      <li>
-        <Link to="">Contact</Link>
       </li>
     </>
   );
@@ -52,14 +57,36 @@ const NavBar = () => {
         <Link to="/" className="btn btn-ghost text-xl">
           <img src={logo} alt="" />
         </Link>
+
+
+
+
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
-        <button className="btn bg-transparent text-[#FF3811] border-[#FF3811] hover:bg-[#FF3811] hover:text-white hover:border-[#FF3811]  ">
-          Appointment
-        </button>
+      <div className="navbar-end gap-2">
+
+        <button className="btn bg-transparent text-[#FF3811] border-[#FF3811] hover:bg-[#FF3811] hover:text-white
+         hover:border-[#FF3811]"> Appointment</button>
+        {
+          user?.email ?
+            <>
+
+              <Link to='/bookings'><button className="flex te items-center gap-1 btn bg-[#FF3811] text-white border-[#FF3811]
+         hover:bg-white hover:text-[#FF3811] hover:font-bold hover:border-[#FF3811]">My Bookings </button>
+              </Link>
+
+              <button onClick={handleLogOut} className="flex te items-center gap-1 btn bg-[#FF3811] text-white border-[#FF3811]
+         hover:bg-white hover:text-[#FF3811] hover:font-bold hover:border-[#FF3811]"><IoMdLogOut /> Log Out</button>
+            </>
+            :
+
+            <Link className="flex items-center gap-1 btn bg-[#FF3811] text-white border-[#FF3811] hover:bg-white
+        hover:text-[#FF3811] hover:font-bold hover:border-[#FF3811]" to="/login"> <FaUser />Login</Link>
+
+        }
+
       </div>
     </div>
   );
